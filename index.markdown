@@ -7,7 +7,7 @@ comments_id: 1
 ---
 {% include search-google.html %}
 
-{% if page.comments_id %}
+{% if comments_id %}
 			{% include comments.html %}
 		{% endif %}
 
