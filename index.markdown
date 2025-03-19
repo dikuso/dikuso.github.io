@@ -3,10 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+comment_issue_id: 1 
 ---
 {% include search-google.html %}
 
 <script src="/js/jquery.min.js"></script>
-{% include comments.html element=".post-content" github_account="jhvanderschee/jekyllcodex" require_cookie_consent="true" %}
+{% include comments.html element=".post-content" github_account="dikuso/dikuso.github.io" require_cookie_consent="true" %}
 
 {% include new-window-fix.html %}
