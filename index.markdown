@@ -10,5 +10,3 @@ layout: home
 {% include comments.html element=".post-content" github_account="jhvanderschee/jekyllcodex" require_cookie_consent="true" %}
 
 {% include new-window-fix.html %}
-</body>
-</html>
