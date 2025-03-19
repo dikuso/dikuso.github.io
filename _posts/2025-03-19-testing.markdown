@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Github pages & Jekyll Setup"
-date:   2025-03-07 13:07:20 -0500
+date:   2025-03-19 13:07:20 -0500
 categories: Github updates
 ---
 
