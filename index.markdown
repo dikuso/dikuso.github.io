@@ -7,6 +7,6 @@ comments_id: 1
 ---
 {% include search-google.html %}
 
-{% include comments.html %}
+
 
 {% include new-window-fix.html %}
