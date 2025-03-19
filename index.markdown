@@ -7,8 +7,8 @@ comments_id: 1
 ---
 {% include search-google.html %}
 
-{% if comments_id %}
-			{% include comments.html %}
-		{% endif %}
+
+{% include comments.html %}
+
 
 {% include new-window-fix.html %}
