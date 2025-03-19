@@ -5,3 +5,7 @@
 layout: home
 ---
 {% include search-google.html %}
+
+{% include new-window-fix.html %}
+</body>
+</html>
