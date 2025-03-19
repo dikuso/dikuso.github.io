@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-ghcommentid: 1 
+comments_id: 1 
 ---
 {% include search-google.html %}
 
