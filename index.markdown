@@ -4,3 +4,4 @@
 
 layout: home
 ---
+{% include search-google.html %}
