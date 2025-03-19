@@ -7,7 +7,6 @@ comment_issue_id: 1
 ---
 {% include search-google.html %}
 
-<script src="/js/jquery.min.js"></script>
-{% include comments.html element=".post-content" github_account="dikuso" require_cookie_consent="true" %}
+{{ partial "comments.html" . }}
 
 {% include new-window-fix.html %}
