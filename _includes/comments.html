@@ -1,29 +1,38 @@
-<script>
-    const GH_API_URL = `https://api.github.com/repos/divkuso/divkuso/issues/1/comments?per_page=100`;
-    let request = new XMLHttpRequest();
-    request.open('GET', GH_API_URL, true);
-    request.onload = function() {
-      if (this.status >= 200 && this.status < 400) {
-        let response = JSON.parse(this.response);
-        let commentsList = document.getElementById('gh-comments-list');
-        commentsList.innerHTML = ''; // Clear existing comments
-        for (let i = 0; i < response.length; i++) {
-          let comment = response[i];
-          let commentElement = document.createElement('li');
-          commentElement.innerHTML = `
-            <img src="${comment.user.avatar_url}" alt="Avatar" width="50">
-            <p><strong>${comment.user.login}</strong>: ${comment.body}</p>
-          `;
-          commentsList.appendChild(commentElement);
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contents</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="comments">
+        <h2>Comments</h2>
+        <a id="contents-comment-link" href="#">Add a Comment</a>
+        <div id="existing-contents-comments"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#contents-comment-link').attr('href', 'https://github.com/dikuso/dikuso.github.io/issues/new?title=Comment%20on%20contents.html');
+
+            $.getJSON('https://api.github.com/repos/dikuso/dikuso.github.io/issues', function(data) {
+                $.each(data, function(index, issue) {
+                    if (issue.title.includes("Comment on contents.html")) {
+                        $('#existing-contents-comments').append('<div class="comment"><h3>' + issue.title + '</h3><p>' + issue.body + '</p></div>');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
         }
-      } else {
-        console.log('Error fetching comments:', this.status);
-      }
-    };
-    request.onerror = function() {
-      console.log('Error fetching comments:', this.status);
-    };
-    request.send();
-  </script>
-  
-  <ul id="gh-comments-list"></ul>
+    </style>
+
+</body>
+</html>
