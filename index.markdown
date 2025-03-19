@@ -7,6 +7,6 @@ ghcommentid: 1
 ---
 {% include search-google.html %}
 
-{{ partial "comments.html" . }}
+{% include comments.html %}
 
 {% include new-window-fix.html %}
