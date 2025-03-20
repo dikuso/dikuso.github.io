@@ -1,38 +1,76 @@
 
-<html>
-<head>
-    <title>Contents</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body>
+* Replace the existing "Add a Comment" link and add a form:
 
+    ```html
     <div id="comments">
         <h2>Comments</h2>
-        <a id="contents-comment-link" href="#">Add a Comment</a>
-        <div id="existing-contents-comments"></div>
+        <div id="existing-contents-comments">
+            
+        </div>
+        <div id="comment-form">
+            <h3>Add a Comment</h3>
+            <textarea id="comment-body" rows="4" cols="50" placeholder="Enter your comment here..."></textarea><br>
+            <button id="post-comment-btn">Post Comment</button>
+        </div>
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#contents-comment-link').attr('href', 'https://github.com/dikuso/dikuso.github.io/issues/new?title=Comment%20on%20contents.html');
-
-            $.getJSON('https://api.github.com/repos/dikuso/dikuso.github.io/issues', function(data) {
-                $.each(data, function(index, issue) {
-                    if (issue.title.includes("Comment on contents.html")) {
-                        $('#existing-contents-comments').append('<div class="comment"><h3>' + issue.title + '</h3><p>' + issue.body + '</p></div>');
-                    }
+    $(document).ready(function() {
+        // Function to fetch and display existing comments
+        function fetchComments() {
+            $.getJSON('https://api.github.com/repos/dikuso/dikuso.github.io/issues/7/comments', function(data) { //Use the issue number.
+                $('#existing-contents-comments').empty(); // Clear existing comments
+                $.each(data, function(index, comment) {
+                    $('#existing-contents-comments').append('<div class="comment"><p>' + comment.body + '</p></div>');
                 });
             });
+        }
+
+        // Initial fetch of comments
+        fetchComments();
+
+        // Handle the "Post Comment" button click
+        $('#post-comment-btn').click(function() {
+            const commentText = $('#comment-body').val();
+            if (commentText.trim() !== "") { // Don't send empty comments
+                // Use the correct URL of your serverless function or API endpoint
+                $.ajax({
+                    url: '/.netlify/functions/your-function-name', // *Replace this with your actual serverless function URL*
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ comment: commentText }),
+                    success: function(response) {
+                        if (response.success) {
+                            $('#comment-body').val(''); // Clear the textarea
+                            fetchComments(); // Refresh the comments section
+                            alert(response.message); // Show a success message
+                        } else {
+                            alert('Error: ' + response.error); // Show an error message
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX error:', error);
+                        alert('Failed to post comment. Please check the console.');
+                    },
+                });
+            } else {
+                alert('Please enter a comment before posting.');
+            }
         });
+    });
     </script>
 
     <style>
-        .comment {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+    .comment {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    #comment-form {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #eee;
+        background-color: #f8f8f8;
+    }
     </style>
-
-</body>
-</html>
+    ```
