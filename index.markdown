@@ -8,7 +8,9 @@ comments_id: 1
 {% include search-google.html %}
 
 
-{% include comments.html %}
+<script src="/js/jquery.min.js"></script>
+{% include comments.html element=".post-content" github_account="divkuso/divkuso.github.io" %}
+
 
 
 {% include new-window-fix.html %}
