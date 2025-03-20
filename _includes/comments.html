@@ -1,7 +1,4 @@
 
-* Replace the existing "Add a Comment" link and add a form:
-
-    ```html
     <div id="comments">
         <h2>Comments</h2>
         <div id="existing-contents-comments">
@@ -18,7 +15,7 @@
     $(document).ready(function() {
         // Function to fetch and display existing comments
         function fetchComments() {
-            $.getJSON('https://api.github.com/repos/dikuso/dikuso.github.io/issues/7/comments', function(data) { //Use the issue number.
+            $.getJSON('https://api.github.com/repos/dikuso/dikuso.github.io/issues/1/comments', function(data) { //Use the issue number.
                 $('#existing-contents-comments').empty(); // Clear existing comments
                 $.each(data, function(index, comment) {
                     $('#existing-contents-comments').append('<div class="comment"><p>' + comment.body + '</p></div>');
@@ -73,4 +70,3 @@
         background-color: #f8f8f8;
     }
     </style>
-    ```
