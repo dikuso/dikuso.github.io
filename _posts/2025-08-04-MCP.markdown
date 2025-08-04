@@ -3,27 +3,19 @@ layout: post
 title: "Building an AI-Powered Sentiment Analysis Application with MCP and Gradio"
 date: 2025-08-04 13:01:00 -0400
 categories:
----
 AI
-
 Python
-
 JavaScript
-
 MCP
-
 Gradio
+
 tags:
-
 SentimentAnalysis
-
 HuggingFaceSpaces
-
 SmolAgents
-
 TextBlob
-
 ClientServer
+---
 
 I recently completed an exciting project focused on developing an end-to-end sentiment analysis application, leveraging the power of the Micro-Composer Protocol (MCP). This project was a deep dive into modern AI integration, demonstrating how different components can seamlessly communicate to deliver intelligent functionalities.
 
