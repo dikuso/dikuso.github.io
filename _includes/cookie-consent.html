@@ -32,8 +32,10 @@
     }
 
     if(readCookie('cookie-notice-dismissed')=='true') {
-        {% include ga.js %}
-        {% include chatbutton.js %}
+        // TODO: Add Google Analytics code here or create _includes/ga.js
+        // {% include ga.js %}
+        // TODO: Add chat button code here or create _includes/chatbutton.js  
+        // {% include chatbutton.js %}
     } else {
         document.getElementById('cookie-notice').style.display = 'block';
     }
