@@ -7,28 +7,22 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
+  {{ content }} {# This will render any Markdown content directly in your index.md #}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+  <div class="home-sections-grid">
+    {% include home_sections/projects_summary.html %}
+    {% include home_sections/resume_link.html %}
+    {% include home_sections/data_ai_journey_summary.html %}
+    {% include home_sections/network_engineering_journey_summary.html %}
+    {% include home_sections/social_links.html %}
+    <section class="section-block">
+      <h2>Latest Blog Posts</h2>
+      <p>Stay up-to-date with my latest articles and insights. I share thoughts on technology, development, and more.</p>
+      {% include blogs_list.html %} {# This uses the blog list include #}
+      <a href="{{ "/blog/" | relative_url }}" class="button">View All Blogs</a>
+    </section>
+  </div>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
 
 </div>

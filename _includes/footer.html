@@ -2,11 +2,9 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+      <div class="footer-col">
+        <h4 class="footer-col-title">Contact</h4>
         <ul class="contact-list">
           <li class="p-name">
             {%- if site.author -%}
@@ -14,22 +12,53 @@
             {%- else -%}
               {{ site.title | escape }}
             {%- endif -%}
-            </li>
-            {%- if site.email -%}
+          </li>
+          {%- if site.email -%}
             <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          {%- endif -%}
         </ul>
       </div>
 
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
+      <div class="footer-col">
+        <h4 class="footer-col-title">Connect</h4>
+        <ul class="social-media-list">
+          {%- if site.github_username -%}
+          <li>
+            <a href="https://github.com/{{ site.github_username | cgi_escape | escape }}" class="social-icon-link" target="_blank">
+              <svg class="svg-icon icon-github"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg>
+              GitHub
+            </a>
+          </li>
+          {%- endif -%}
+
+          {%- if site.linkedin_username -%}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}" class="social-icon-link" target="_blank">
+              <svg class="svg-icon icon-linkedin"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg>
+              LinkedIn
+            </a>
+          </li>
+          {%- endif -%}
+
+          {%- if site.twitter_username -%}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}" class="social-icon-link" target="_blank">
+              <svg class="svg-icon icon-twitter"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg>
+              Twitter
+            </a>
+          </li>
+          {%- endif -%}
+        </ul>
       </div>
 
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
+      <div class="footer-col">
+        <h4 class="footer-col-title">About This Site</h4>
+        <p>{{ site.description | escape }}</p>
       </div>
     </div>
 
+    <div class="copyright">
+      &copy; {{ site.time | date: "%Y" }} {{ site.title | escape }}. All rights reserved.
+    </div>
   </div>
-
 </footer>

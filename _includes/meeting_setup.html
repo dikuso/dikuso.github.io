@@ -1,0 +1,24 @@
+<div class="meeting-form">
+    <h3>Schedule a Meeting</h3>
+    <p>Please fill out the form below to request a meeting. I'll get back to you as soon as possible to confirm the details.</p>
+    <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="preferred_date">Preferred Date:</label>
+      <input type="date" id="preferred_date" name="preferred_date">
+  
+      <label for="preferred_time">Preferred Time:</label>
+      <input type="time" id="preferred_time" name="preferred_time">
+  
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+  
+      <input type="submit" value="Send Meeting Request">
+    </form>
+    <p><strong>Important:</strong> To make this form send an email, you'll need to integrate it with a backend service. I recommend using a free service like <a href="https://formspree.io/" target="_blank">Formspree.io</a> or configuring <a href="https://docs.netlify.com/forms/setup/" target="_blank">Netlify Forms</a> if you're hosting on Netlify. You'll replace `YOUR_FORM_SUBMISSION_ENDPOINT` with the URL provided by your chosen service.</p>
+  </div>
+  

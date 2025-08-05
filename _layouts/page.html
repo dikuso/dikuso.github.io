@@ -1,14 +1,40 @@
 ---
-layout: default
+layout: default # Assuming you have a default.html for the overall site structure (header, footer, etc.)
 ---
-<article class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
+<article class="page-content">
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.date %}
+      <p class="page-date">{{ page.date | date: "%b %-d, %Y" }}</p>
+    {% endif %}
   </header>
 
-  <div class="post-content">
-    {{ content }}
+  <div class="main-content">
+    {% if page.type == "projects" %}
+      <h2>My Projects</h2>
+      <p>Here you'll find a showcase of my work and personal projects.</p>
+      {% include projects_section.html %} {# This will pull content from _includes/projects_section.html #}
+
+    {% elsif page.type == "blogs" %}
+      <h2>Latest Blog Posts</h2>
+      <p>Dive into my thoughts and articles on various topics.</p>
+      {% include blogs_list.html %} {# This will pull content from _includes/blogs_list.html #}
+
+    {% elsif page.type == "calendar" %}
+      <h2>My Calendar</h2>
+      <p>View upcoming events and important dates.</p>
+      {% include calendar_view.html %} {# This will pull content from _includes/calendar_view.html #}
+
+    {% elsif page.type == "meeting" %}
+      <h2>Schedule a Meeting</h2>
+      <p>Let's connect! Use the options below to set up a meeting.</p>
+      {% include meeting_setup.html %} {# This will pull content from _includes/meeting_setup.html #}
+
+    {% else %}
+      {# Default content for pages that don't have a specific type, or if type is not recognized #}
+      {{ content }} {# This renders the Markdown content directly from the page file #}
+    {% endif %}
   </div>
 
 </article>

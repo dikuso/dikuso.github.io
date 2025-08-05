@@ -1,0 +1,22 @@
+<section class="section-block">
+    <h2>Connect with Me</h2>
+    <p>Let's connect on social media! Find me on LinkedIn and check out my coding projects on GitHub.</p>
+    <div class="social-icons">
+      {%- if site.linkedin_username -%}
+      <a href="https://linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}" class="social-icon-link" target="_blank" title="LinkedIn">
+        <svg class="svg-icon icon-linkedin"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg>
+      </a>
+      {%- endif -%}
+      {%- if site.github_username -%}
+      <a href="https://github.com/{{ site.github_username | cgi_escape | escape }}" class="social-icon-link" target="_blank" title="GitHub">
+        <svg class="svg-icon icon-github"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg>
+      </a>
+      {%- endif -%}
+      {%- if site.twitter_username -%}
+      <a href="https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}" class="social-icon-link" target="_blank" title="Twitter">
+        <svg class="svg-icon icon-twitter"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg>
+      </a>
+      {%- endif -%}
+    </div>
+  </section>
+  
