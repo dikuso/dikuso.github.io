@@ -1,13 +1,16 @@
 ---
 layout: default
 ---
+---
+layout: default
+---
 
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }} {# This will render any Markdown content directly in your index.md #}
+  {{ content }} 
 
   <div class="home-sections-grid">
     {% include home_sections/projects_summary.html %}
