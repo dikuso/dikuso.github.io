@@ -1,5 +1,9 @@
 ---
+# This empty front matter block is necessary for Jekyll to process this file as SCSS
 ---
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
 /* Basic Styles & Typography */
 body {
@@ -83,6 +87,10 @@ a:hover {
 }
 
 .site-nav {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space title and nav items */
+  align-items: center; /* Vertically align items */
+
   ul {
     list-style: none;
     padding: 0;
@@ -118,6 +126,63 @@ a:hover {
     }
   }
 }
+
+/* Mobile Menu Icon Styling */
+.nav-trigger {
+  display: none; /* Hide the actual checkbox */
+}
+
+.menu-icon {
+  display: none; /* Hidden by default on desktop */
+  cursor: pointer;
+  padding: 10px;
+  svg {
+    fill: white;
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Show menu icon on smaller screens */
+@media (max-width: 768px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .site-nav .site-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .site-nav .trigger {
+    display: none; /* Hide menu items by default */
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .site-nav ul {
+    flex-direction: column;
+    width: 100%;
+    li {
+      margin: 10px 0;
+    }
+  }
+
+  /* When checkbox is checked, show the menu and transform icon */
+  .nav-trigger:checked + label .menu-icon svg {
+    transform: rotate(90deg); /* Example: rotate to make an 'X' or checkmark */
+  }
+  .nav-trigger:checked + label + .trigger {
+    display: block; /* Show menu */
+  }
+}
+
 
 /* Footer Styling */
 .site-footer {
@@ -461,13 +526,42 @@ a:hover {
     padding: 0 15px;
   }
 
-  .site-nav ul {
-    justify-content: center;
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .site-nav .site-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .site-nav .trigger {
+    display: none; /* Hide menu items by default */
+    width: 100%;
+    text-align: center;
     margin-top: 15px;
   }
+  .site-nav ul {
+    flex-direction: column;
+    width: 100%;
+    li {
+      margin: 10px 0;
+    }
+  }
 
-  .site-nav li {
-    margin: 0 10px;
+  /* When checkbox is checked, show the menu and transform icon */
+  .nav-trigger:checked + label .menu-icon svg {
+    transform: rotate(90deg); /* Example: rotate to make an 'X' or checkmark */
+  }
+  .nav-trigger:checked + label + .trigger {
+    display: block; /* Show menu */
   }
 
   .page-content, .post-content {
