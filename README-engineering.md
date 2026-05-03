@@ -34,19 +34,23 @@ Your site uses a modular approach to connect the homepage to specific deep-dive 
 * [ ] Create an `index.md` inside that folder with the following front matter:
 
 ```yaml
+{% raw %}
 ---
 layout: page
 title: "Your Title"
 type: unique_topic_name
 ---
+{% endraw %}
 ```
 ### Phase C: The Layout Logic
 * [ ] Open `_layouts/page.html`.
 * [ ] Add an `elsif` block for your new type:
 ```
+{% raw %}
 {% elsif page.type == "unique_topic_name" %}
   <h2>Section Heading</h2>
   {% include topic_detailed_content.html %}
+{% endraw %}
 ```  
 
 ### Phase D: The Detailed Content
