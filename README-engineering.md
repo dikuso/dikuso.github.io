@@ -27,7 +27,7 @@ Your site uses a modular approach to connect the homepage to specific deep-dive 
 ### Phase A: The Homepage Summary
 * [ ] Create a new file: `_includes/home_sections/topic_summary.html`.
 * [ ] Add a `<section class="section-block">` with a link to `/topic-folder/`.
-* [ ] Insert `{% include home_sections/topic_summary.html %}` into `_layouts/home.html`.
+* [ ] Insert `{% raw %}{% include home_sections/topic_summary.html %}{% endraw %}` into `_layouts/home.html`.
 
 ### Phase B: The Content Routing
 * [ ] Create a new folder at the root: `/topic-folder/`.
