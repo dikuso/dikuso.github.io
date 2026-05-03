@@ -1,3 +1,9 @@
+---
+layout: page
+title: Engineering Guide
+permalink: /engineering/
+---
+
 # Jekyll Portfolio Engineering Guide & Checklist
 
 This guide outlines the **Layout Chain** logic and provides a repeatable checklist for adding new technical sections to your portfolio.
