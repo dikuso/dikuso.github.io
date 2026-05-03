@@ -23,7 +23,7 @@ email: divesh300@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Journaling my skill progress through blogs and project.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://dikuso.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 instagram_username: divk300
 github_username:  divkuso
 future: true
